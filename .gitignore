@@ -1,0 +1,21 @@
+# Connect IQ build output. The signed .prg ships on releases, not in git.
+bin/
+*.prg
+*.prg.debug.xml
+*-settings.json
+
+# monkeyc intermediates
+gen/
+internal-mir/
+external-mir/
+
+# Signing keys must never be committed.
+*.der
+*.pem
+*.p12
+developer_key*
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

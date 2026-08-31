@@ -1,0 +1,29 @@
+<fonts>
+    <!-- One typeface across the whole face. Subset hard: the time fonts
+         carry only 0-9 and ':', which is what keeps a display-size face
+         affordable. Regenerate with tools/make_serif_font.py, one size
+         per screen resolution — never scale a bitmap face at runtime. -->
+
+    <!-- Palatino, for the three editorial layouts. -->
+    <font id="serifTime" filename="serif_time.fnt" antialias="true"/>
+    <font id="serifSmall" filename="serif_small.fnt" antialias="true"/>
+    <font id="serifLabel" filename="serif_label.fnt" antialias="true"/>
+    <font id="serifMicro" filename="serif_micro.fnt" antialias="true"/>
+
+    <!-- Candara Light, for Radial. Sizes are not taste: they are the
+         cap heights measured off the approved comp, scaled to 454px —
+         76px on the time, 24px on the row figures, 14px on the words —
+         and the px size that hits each cap is per-typeface, so changing
+         the face means re-solving all four.
+         Candara over Segoe UI Light because its stems flare and its
+         terminals are soft; Segoe read too sharp at display size. Its
+         set width happens to match too: '7:42' comes out 191px against
+         the comp's 186, where Calibri Light needs 211px for the same
+         cap height and reads bulky.
+         The light weight is the point. At regular weight the time stops
+         being quiet and the whole layout has to be rebalanced. -->
+    <font id="sansTime" filename="sans_time.fnt" antialias="true"/>
+    <font id="sansSmall" filename="sans_small.fnt" antialias="true"/>
+    <font id="sansLabel" filename="sans_label.fnt" antialias="true"/>
+    <font id="sansMicro" filename="sans_micro.fnt" antialias="true"/>
+</fonts>

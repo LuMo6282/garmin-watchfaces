@@ -1,0 +1,22 @@
+<properties>
+    <!-- 0 = radial, 1 = meridian, 2 = column, 3 = rings. A `list` setting is only
+         valid over a numeric property, so the layout is an index rather than a
+         name. Sideloaded builds get no settings UI: change this default and
+         rebuild to reach the other layouts. -->
+    <property id="layout" type="number">0</property>
+    <property id="darkTreatment" type="boolean">true</property>
+
+    <!-- Preview a training status in the simulator, which never reports
+         one. 0 = off (use the real complication). 1 detraining,
+         2 recovery, 3 maintaining, 4 productive, 5 peaking,
+         6 unproductive, 7 strained, 8 overreaching.
+         MUST be 0 in anything you wear. -->
+    <property id="demoStatus" type="number">0</property>
+
+    <!-- Preview the dial at a step count, as a percent of the goal. The
+         simulator reports no steps either, so without this there is no
+         way to see the overshoot pass at all. 0 = off (use the real step
+         count). 140 = 40% into the second pass. MUST be 0 in anything
+         you wear. -->
+    <property id="demoSteps" type="number">0</property>
+</properties>

@@ -1,0 +1,13 @@
+<settings>
+    <setting propertyKey="@Properties.layout" title="@Strings.LayoutTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.LayoutRadial</listEntry>
+            <listEntry value="1">@Strings.LayoutMeridian</listEntry>
+            <listEntry value="2">@Strings.LayoutColumn</listEntry>
+            <listEntry value="3">@Strings.LayoutRings</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.darkTreatment" title="@Strings.DarkTitle">
+        <settingConfig type="boolean"/>
+    </setting>
+</settings>

@@ -1,0 +1,8 @@
+project.manifest = manifest.xml
+
+# The serif numeral font is not generated yet (see README). Until
+# resources/fonts/ exists with a `serifTime` font, the serif loader is
+# excluded from the build and FaceFonts falls back to a built-in
+# numeric face. To switch it on: add the font resource, then swap
+# `serifFont` for `noSerifFont` on the line below.
+base.excludeAnnotations = noSerifFont

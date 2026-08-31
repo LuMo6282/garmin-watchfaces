@@ -1,0 +1,9 @@
+<strings>
+    <string id="AppName">Clay</string>
+    <string id="LayoutTitle">Layout</string>
+    <string id="LayoutRadial">Radial</string>
+    <string id="LayoutMeridian">Meridian</string>
+    <string id="LayoutRings">Rings</string>
+    <string id="LayoutColumn">Column</string>
+    <string id="DarkTitle">Dark treatment</string>
+</strings>
