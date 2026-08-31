@@ -1,0 +1,23 @@
+<fonts>
+    <!-- Bahnschrift — Windows' cut of DIN 1451, the German industrial
+         standard face off road signs and equipment panels. Subset hard:
+         the time font carries only 0-9 and ':', which is what keeps a
+         display-size face affordable, and every subset is upper case
+         only because nothing on this face is set in lower case.
+
+         Sizes are the cap heights carried over from Clay's approved
+         comp — 76px on the time, 24px on the row figures, 14 and 12 on
+         the words — re-solved for this typeface. The px that hits a
+         given cap is per-face and never transfers.
+
+         The time and the row figures are TABULAR: every digit gets the
+         widest digit's advance. Bahnschrift is proportional by default,
+         so without it the clock reshuffles every time a 1 rolls past.
+
+         Regenerate with tools/make_din_font.py, one size per screen
+         resolution — never scale a bitmap face at runtime. -->
+    <font id="dinTime" filename="din_time.fnt" antialias="true"/>
+    <font id="dinSmall" filename="din_small.fnt" antialias="true"/>
+    <font id="dinLabel" filename="din_label.fnt" antialias="true"/>
+    <font id="dinMicro" filename="din_micro.fnt" antialias="true"/>
+</fonts>

@@ -1,0 +1,5 @@
+<strings>
+    <string id="AppName">Recon</string>
+    <string id="DemoStatusTitle">Demo training status</string>
+    <string id="DemoStepsTitle">Demo steps (% of goal)</string>
+</strings>

@@ -1,0 +1,12 @@
+<settings>
+    <!-- Recon has no layout or treatment switch. It is one face with one
+         ground: an always-dark instrument panel. A cream Recon is not a
+         lighter version of this design, it is a different design, and
+         shipping the option would only invite it to be found by accident. -->
+    <setting propertyKey="@Properties.demoStatus" title="@Strings.DemoStatusTitle">
+        <settingConfig type="numeric"/>
+    </setting>
+    <setting propertyKey="@Properties.demoSteps" title="@Strings.DemoStepsTitle">
+        <settingConfig type="numeric"/>
+    </setting>
+</settings>

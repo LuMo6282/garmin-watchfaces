@@ -1,0 +1,14 @@
+<properties>
+    <!-- Preview a training status in the simulator, which never reports
+         one. 0 = off (use the real complication). 1 detraining,
+         2 recovery, 3 maintaining, 4 productive, 5 peaking,
+         6 unproductive, 7 strained, 8 overreaching.
+         MUST be 0 in anything you wear. -->
+    <property id="demoStatus" type="number">0</property>
+
+    <!-- Preview the scale at a step count, as a percent of goal. The
+         simulator reports no steps either, so without this the lit
+         graduations and the second pass cannot be seen at all.
+         140 = 40% into the second pass. MUST be 0 in anything you wear. -->
+    <property id="demoSteps" type="number">0</property>
+</properties>
