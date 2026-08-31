@@ -8,7 +8,7 @@ import Toybox.WatchUi;
 // put pixels down.
 //
 // Clay picks one of four renderers off a stored property. Recon has one
-// face and no treatment switch, so there is no property to read here —
+// face and no treatment switch, so there is no property to read here -
 // which also sidesteps the trap that shipped Clay's first sideload as a
 // cream watch face: a property the device store has never seen can
 // throw or answer null, and a fallback that disagrees with
@@ -30,7 +30,7 @@ class FaceView extends WatchUi.WatchFace {
     //
     // Driven off the clock rather than off a tick count. The minimum
     // timer interval is a property of the host, not a constant, and this
-    // device clamps above what the animation asks for — counting ticks
+    // device clamps above what the animation asks for - counting ticks
     // stretched the reveal to whatever the clamp happened to be.
     hidden const REVEAL_MS = 250;
     hidden const TICK_MS = 50;

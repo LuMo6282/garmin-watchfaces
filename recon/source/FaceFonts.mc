@@ -6,7 +6,7 @@ import Toybox.WatchUi;
 // three editorial layouts are built on a serif's colour; Recon is a
 // single face and has no reason to hold a second sheet in memory.
 //
-// All four are Bahnschrift — DIN 1451 — subset to upper case and
+// All four are Bahnschrift - DIN 1451 - subset to upper case and
 // figures. See resources/fonts/fonts.xml for what each carries and
 // tools/make_din_font.py to regenerate.
 module FaceFonts {

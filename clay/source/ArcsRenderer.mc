@@ -4,7 +4,7 @@ import Toybox.Lang;
 // Layout A. The time is the page; everything else is a caption.
 //
 // The arcs carry steps and body battery, so neither is repeated as a
-// number — the old stat row said the same thing twice, which is what
+// number - the old stat row said the same thing twice, which is what
 // made the face read as data scattered on a background rather than a
 // composition. What is left below the time is the step count, which is
 // the one figure worth reading exactly, and a quiet line of the things
@@ -49,7 +49,7 @@ class ArcsRenderer extends Renderer {
         var cy = h / 2;
 
         // The palette follows training status, so it has to be settled
-        // before anything is painted — including the background.
+        // before anything is painted - including the background.
         status = m.trainingStatus;
 
         clear(dc);
@@ -62,7 +62,7 @@ class ArcsRenderer extends Renderer {
         drawSun(dc, m, cx, h);
     }
 
-    // Only an arc with something to say gets drawn — track included.
+    // Only an arc with something to say gets drawn - track included.
     // A lone empty track on a device without body battery is exactly
     // the placeholder gap the face is supposed to never show.
     hidden function drawArcs(
@@ -116,7 +116,7 @@ class ArcsRenderer extends Renderer {
 
     // The word that explains the colour. Everything else on the face is
     // neutral, so this line and the rings are the only places the accent
-    // appears — which makes the accent legible as information rather
+    // appears - which makes the accent legible as information rather
     // than styling. Steps stay on the ring; the exact count was saying
     // the same thing twice.
     hidden function drawStatus(
@@ -134,7 +134,7 @@ class ArcsRenderer extends Renderer {
     }
 
     // What your body is doing: recovery and heart rate. Temperature
-    // belongs with the sun on the line below — that one is the world
+    // belongs with the sun on the line below - that one is the world
     // outside, this one is you.
     // takes only what the rim leaves room for and drops the rest, so it
     // can neither clip nor collide with the ring.

@@ -3,7 +3,7 @@ import Toybox.Lang;
 
 // The palette is a function of training status.
 //
-// The face still shows exactly one accent at a time — that rule has not
+// The face still shows exactly one accent at a time - that rule has not
 // been relaxed, it has been given a job. The accent now says how your
 // training is going, so the colour is information rather than decoration,
 // and the face reads differently in a peak week than in a recovery one.
@@ -29,12 +29,12 @@ module Theme {
     //
     // No-status resolves to clay rather than to a neutral. A watch that
     // has not earned a training status yet is the normal state for the
-    // first week, on a rest block, and any time the history lapses — and
+    // first week, on a rest block, and any time the history lapses - and
     // a bone accent made all of those look like a face with its colour
     // broken rather than a face with nothing to report. Clay is the
     // signature, so it is what the face falls back to; the status WORD
     // is what disambiguates, and it is simply absent when unknown.
-    const A_NONE_D        = 0xD97757 as Number;   // clay — the resting identity
+    const A_NONE_D        = 0xD97757 as Number;   // clay - the resting identity
     const A_DETRAINING_D  = 0x7C8894 as Number;   // cold steel, the face cools off
     const A_RECOVERY_D    = 0x6FB0A6 as Number;   // teal, the only calm state
     const A_MAINTAINING_D = 0xC0925E as Number;   // bronze, steady
@@ -44,7 +44,7 @@ module Theme {
     const A_STRAINED_D    = 0xD9575A as Number;   // alarm red, back off
     const A_OVERREACH_D   = 0xE08A6E as Number;   // scorched clay, one step short of strain
 
-    // Accent on the light treatment — same hues, taken down far enough
+    // Accent on the light treatment - same hues, taken down far enough
     // to hold their own against cream.
     const A_NONE_L        = 0xB0512D as Number;
     const A_DETRAINING_L  = 0x4E5A66 as Number;
@@ -76,7 +76,7 @@ module Theme {
     const HAIRLINE   = 0xDCD6C6 as Number;
     const TRACK      = 0xC9C2AE as Number;
 
-    // The cream carries the status too, but only in brightness — never
+    // The cream carries the status too, but only in brightness - never
     // in hue, or the neutral half of the face would start competing with
     // the accent. A recovery day is meant to feel like a lamp turned
     // down; a peak week like one turned up.
@@ -107,7 +107,7 @@ module Theme {
     //   turned the teals and blues into olive sludge, so each DEEP is a
     //   deeper version of its own hue.
     //
-    //   MILK is the same hue with chroma drained and value raised —
+    //   MILK is the same hue with chroma drained and value raised -
     //   except OVERREACHING, whose MILK is warmer and MORE saturated than
     //   its PALE. That is the one deliberate asymmetry in the table:
     //   beating a goal on a strained day should read as heat, not reward.
@@ -120,7 +120,7 @@ module Theme {
     // desaturated orange turns brown and reads as grime; desaturated
     // greens and blues stay clean, which is why the other eight ramps
     // survive the same treatment and this one did not. Luminance is
-    // unchanged from that version — only the chroma moved.
+    // unchanged from that version - only the chroma moved.
     const R_NONE         = [0xA34A22, 0xF59B70, 0xF9C0A3, 0xF6E6D8] as Array<Number>;
     const R_DETRAINING   = [0x4E5257, 0xB4B4AF, 0xD6D6D0, 0xEDEDE8] as Array<Number>;
     const R_RECOVERY     = [0x2F6B63, 0xA6D0C6, 0xCFE9E0, 0xEDF8F4] as Array<Number>;
@@ -150,7 +150,7 @@ module Theme {
     }
 
     // How much lift the overshoot pass has earned. Recovery is lowest by
-    // design — a recovery day that beats its step goal is not a triumph.
+    // design - a recovery day that beats its step goal is not a triumph.
     function rampCap(status as Number) as Float {
         if (status == STATUS_PEAKING)      { return 1.00; }
         if (status == STATUS_PRODUCTIVE)   { return 0.85; }

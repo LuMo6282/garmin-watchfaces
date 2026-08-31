@@ -30,7 +30,7 @@ class FaceView extends WatchUi.WatchFace {
     // Driven off the clock rather than off a tick count. The minimum
     // timer interval is a property of the host, not a constant, and
     // this device clamps above what the animation originally asked
-    // for — counting ticks stretched the reveal to whatever the clamp
+    // for - counting ticks stretched the reveal to whatever the clamp
     // happened to be. Reading elapsed time instead means a slow device
     // drops frames rather than dragging the animation out.
     hidden const REVEAL_MS = 250;

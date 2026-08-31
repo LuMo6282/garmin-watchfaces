@@ -1,13 +1,13 @@
 # Garmin watch faces
 
-Two Connect IQ watch faces for the **Forerunner 970** (454×454 round AMOLED,
+Two Connect IQ watch faces for the **Forerunner 970** (454x454 round AMOLED,
 burn-in protected), built on a shared architecture and pushed in opposite
 design directions.
 
 ![Clay and Recon](screenshots/hero.png)
 
-Both read the same things off the watch — steps against goal, heart rate, body
-battery, training status, sunrise/sunset, temperature — and both spend their
+Both read the same things off the watch - steps against goal, heart rate, body
+battery, training status, sunrise/sunset, temperature - and both spend their
 whole design budget on one question: what can you learn from this face without
 reading it?
 
@@ -39,14 +39,14 @@ Nine training statuses, nine accent ramps. Past 100% the ring drops to a ghost
 of the finished lap and starts again from the far end running backward, lit
 hotter, so 160% is a visibly different picture from 60%.
 
-[Full documentation →](clay/README.md) · [all states](clay/screenshots/_gallery.png)
+[Full documentation](clay/README.md) | [all states](clay/screenshots/_gallery.png)
 
 ---
 
 ## Recon
 
-The same composition rebuilt out of hard edges. The arc becomes a *scale* —
-120 graduations at 3°, majors every 30, square ends — because a gradient says
+The same composition rebuilt out of hard edges. The arc becomes a *scale* -
+120 graduations at 3°, majors every 30, square ends - because a gradient says
 "somewhere around here" and a graduation says a number.
 
 <p float="left">
@@ -55,25 +55,25 @@ The same composition rebuilt out of hard edges. The arc becomes a *scale* —
   <img src="recon/screenshots/06-standby-recovery.png" width="31%">
 </p>
 
-Nine statuses collapse to three signals — amber nominal, steel standby, red
-warning — each paired with a structure family chosen to oppose its temperature.
+Nine statuses collapse to three signals - amber nominal, steel standby, red
+warning - each paired with a structure family chosen to oppose its temperature.
 Only the warning escalates: strained is the one day the centre of the face
 changes colour.
 
-[Full documentation →](recon/README.md) · [all states](recon/screenshots/_gallery.png)
+[Full documentation](recon/README.md) | [all states](recon/screenshots/_gallery.png)
 
 ---
 
 ## Install
 
-No build required — grab `Clay.prg` and/or `Recon.prg` from the
+No build required - grab `Clay.prg` and/or `Recon.prg` from the
 [latest release](../../releases/latest).
 
 1. Connect the watch by USB. It mounts as an **MTP device** (a "portable
    device" in Explorer), not a drive letter.
 2. Copy the `.prg` into `Internal Storage/GARMIN/Apps/`.
 3. Eject properly, then unplug. The watch indexes the app on disconnect.
-4. Long-press **UP** from the watch face → watch-face list → pick it.
+4. Long-press **UP** from the watch face > watch-face list > pick it.
 
 On Windows there is a script that handles the MTP quirks, once the `.prg` is in
 the face's `bin/` folder:
@@ -86,7 +86,7 @@ Two things that will otherwise waste an afternoon:
 
 - **MTP does not reliably overwrite.** Copying a new `.prg` over an existing
   one can silently do nothing, or hang on a replace dialog. If a `.prg` is
-  already sitting in `Apps/`, unplug first and let the watch consume it — an
+  already sitting in `Apps/`, unplug first and let the watch consume it - an
   empty `Apps/` folder is what a successful install looks like.
 - **Settings survive reinstalls.** The watch keeps `Apps/SETTINGS/<App>.SET`,
   and a value stored there wins over any new default compiled in. If a new
@@ -95,7 +95,7 @@ Two things that will otherwise waste an afternoon:
 
 ## Build from source
 
-Needs the Connect IQ SDK and **your own developer key** — no key is included
+Needs the Connect IQ SDK and **your own developer key** - no key is included
 here, and none should be.
 
 ```
@@ -128,9 +128,9 @@ screenshots/   hero image; per-face sets live under each face
 ```
 
 Each face carries its own font generator under `tools/`, which subsets a system
-typeface into a Connect IQ bitmap font — the sheets in `resources/fonts/` are
+typeface into a Connect IQ bitmap font - the sheets in `resources/fonts/` are
 generated, not hand-built.
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).

@@ -57,8 +57,8 @@ class Metrics {
     var watchBattery as Number or Null = null;
     var temperature as Number or Null = null;
 
-    // 0.0 clear to 1.0 overcast. Garmin publishes no cloud percentage —
-    // only a condition enum — so this is bucketed from that. Null means
+    // 0.0 clear to 1.0 overcast. Garmin publishes no cloud percentage -
+    // only a condition enum - so this is bucketed from that. Null means
     // no weather at all, which the sky dial treats as clear rather than
     // as overcast: a watch with no phone nearby should not paint a
     // permanently grey sky.
@@ -91,8 +91,8 @@ class Metrics {
         watchBattery = stats.battery.toNumber();
 
         // Each reader is isolated. They were called bare, so anything
-        // that threw — a permission the device declines, an API a
-        // firmware build does not answer — took out every reader AFTER
+        // that threw - a permission the device declines, an API a
+        // firmware build does not answer - took out every reader AFTER
         // it as well, and the face lost heart rate, body battery,
         // weather and the complications all at once with no clue which
         // one had actually failed.
@@ -127,7 +127,7 @@ class Metrics {
     }
 
     hidden function readHeartRate() as Void {
-        // Live sample first — it is the freshest during an activity.
+        // Live sample first - it is the freshest during an activity.
         var activity = Activity.getActivityInfo();
         if (activity != null && activity.currentHeartRate != null) {
             heartRate = activity.currentHeartRate;
@@ -139,7 +139,7 @@ class Metrics {
             var iterator = ActivityMonitor.getHeartRateHistory(null, true);
             if (iterator != null) {
                 // Walk deep. On the watch the newest entries in the
-                // window are routinely empty or INVALID_HR_SAMPLE — the
+                // window are routinely empty or INVALID_HR_SAMPLE - the
                 // iterator comes back fine and the first several samples
                 // carry nothing, which is why a short walk reported "no
                 // heart rate" on a watch that plainly had one.
@@ -162,7 +162,7 @@ class Metrics {
         if (!(Toybox.SensorHistory has :getBodyBatteryHistory)) { return; }
 
         // `:period => 1` asks for exactly ONE sample. If that sample
-        // happens to be empty — which it often is — the iterator comes
+        // happens to be empty - which it often is - the iterator comes
         // back valid and yields nothing, and no amount of walking helps
         // because there is only ever one entry in it. Ask for a window
         // instead and take the newest entry that carries a reading.
@@ -204,7 +204,7 @@ class Metrics {
 
     // The sky dial only needs to know how much of the sky is covered, so
     // the fifty-odd conditions collapse to five buckets. Anything
-    // precipitating or visibility-limiting counts as fully covered —
+    // precipitating or visibility-limiting counts as fully covered -
     // what matters is that the blue is gone, not what is falling.
     hidden function cloudFrom(c as Number) as Float {
         var w = Toybox.Weather;
@@ -265,8 +265,8 @@ class Metrics {
         }
     }
 
-    // The simulator has no training status to give — its complication
-    // answers "no result" forever — so there is no way to see the one
+    // The simulator has no training status to give - its complication
+    // answers "no result" forever - so there is no way to see the one
     // element that drives the whole palette without a switch for it.
     //
     // Off by default, and it must stay off: a sideloaded build gets no
@@ -330,8 +330,8 @@ class Metrics {
     // known placeholders are treated as absence.
     //
     // Anything else is kept, including a label this build cannot theme.
-    // An unrecognised word still names the wearer's status truthfully —
-    // it only costs the accent, which falls through to neutral — and
+    // An unrecognised word still names the wearer's status truthfully -
+    // it only costs the accent, which falls through to neutral - and
     // dropping it would blank the line on every non-English watch.
     hidden function statusLabel() as String or Null {
         var raw = complicationString(Complications.COMPLICATION_TYPE_TRAINING_STATUS);

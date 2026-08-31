@@ -24,7 +24,7 @@ import Toybox.Lang;
 // That loses the ability to tell peaking from productive by colour. It
 // is meant to: the status WORD is set right under the time and says
 // which one it is. Colour is reserved for the thing you need to read
-// without reading — whether anything is wrong — and nine colours cannot
+// without reading - whether anything is wrong - and nine colours cannot
 // answer that question at a glance while three can.
 module Theme {
 
@@ -51,25 +51,25 @@ module Theme {
     const GROUND_SND = 0x080706 as Number;   // standby, warm cast
     const GROUND_GUN = 0x06080A as Number;   // warning, cool cast
 
-    // The readouts. Warm off-white, not pure white — pure white on this
+    // The readouts. Warm off-white, not pure white - pure white on this
     // ground reads as a screen rather than as a printed panel.
     const BONE       = 0xE8E5D7 as Number;
     const BONE_DIM   = 0xA8A697 as Number;
 
     // ------------------------------------------------------------------
-    // STRUCTURE — the graduations, the rules, the labels, the reticle.
+    // STRUCTURE - the graduations, the rules, the labels, the reticle.
     // Three levels, and now three FAMILIES, one paired to each signal.
     //
     // One olive served all three at first and it does not work. Olive
     // against red is the bad case: both are muddy mid-chroma colours a
     // short way apart on the wheel, so a warning day came out looking
-    // dirty rather than urgent — which is the one state that has to read
+    // dirty rather than urgent - which is the one state that has to read
     // cleanly. Olive against amber is fine, which is why it survives as
     // the nominal family.
     //
     // The rule the three families follow: STRUCTURE OPPOSES THE SIGNAL'S
     // TEMPERATURE. A warm signal gets cool structure, a cool signal gets
-    // warm structure. That buys two things at once — the pairing
+    // warm structure. That buys two things at once - the pairing
     // harmonises instead of clashing, and the structure can never be
     // mistaken for the signal, which is the failure the pale-olive
     // STANDBY already walked into once.
@@ -80,18 +80,18 @@ module Theme {
     // the same red look like different states for no reason, and would
     // reintroduce exactly the nine-way palette this face deleted.
 
-    // NOMINAL — olive drab against the amber. Unchanged; it is the
+    // NOMINAL - olive drab against the amber. Unchanged; it is the
     // face's identity and the most-seen state.
     const OD_LIT     = 0x94A06B as Number;   // labels, endstops, in-range majors
     const OD         = 0x5F6947 as Number;   // in-range minors, out-of-range majors
     const OD_DEEP    = 0x323829 as Number;   // out-of-range minors, the rule
 
-    // STANDBY — warm sand against the cool steel.
+    // STANDBY - warm sand against the cool steel.
     const SAND_LIT   = 0x9A8E70 as Number;
     const SAND       = 0x635B47 as Number;
     const SAND_DEEP  = 0x343026 as Number;
 
-    // WARNING — cool gunmetal against the red. This is the pairing the
+    // WARNING - cool gunmetal against the red. This is the pairing the
     // whole change exists for: red on grey-blue is a warning panel, red
     // on olive is a mess.
     const GUN_LIT    = 0x7E8A92 as Number;
@@ -106,7 +106,7 @@ module Theme {
     // STANDBY is a cool STEEL, not a pale olive.
     //
     // It was 0x9FAA7C first, which is an olive one shade up from the
-    // structure — and OD_LIT, the colour of the major graduations and
+    // structure - and OD_LIT, the colour of the major graduations and
     // the labels, is 0x94A06B. Those are the same colour to the eye. In
     // the three standby states the lit run and the unlit remainder
     // became indistinguishable and the gauge stopped reading at all,
@@ -123,7 +123,7 @@ module Theme {
     const WARN_DIM   = 0x631A0F as Number;
 
     // Always-on. Dimmer than anything the awake face draws, and
-    // deliberately not the signal colour — the ambient state is the
+    // deliberately not the signal colour - the ambient state is the
     // time and nothing else, so it should not appear to be reporting.
     const AMBIENT    = 0x87857A as Number;
 
@@ -170,7 +170,7 @@ module Theme {
 
     // The reticle around the clock.
     //
-    // Structure on every ordinary day — and the warning itself when there
+    // Structure on every ordinary day - and the warning itself when there
     // is one. This is the single place the signal is allowed off the
     // gauge and the status word, and it is allowed there because the
     // reticle is STRUCTURE: it frames a value without being one, so it
@@ -178,7 +178,7 @@ module Theme {
     //
     // The same licence is deliberately NOT given to the row figures, the
     // time or the date. Those are values, and a value that changes colour
-    // is saying something about itself — at which point red means both
+    // is saying something about itself - at which point red means both
     // "your training is past a limit" and "this number is past a limit",
     // and it stops answering either question.
     //
@@ -200,7 +200,7 @@ module Theme {
     // pair earns red, or red stops meaning anything.
     //
     // No-status is NOMINAL. It is the state the watch sits in until it
-    // has training history — the first week, a rest block, any lapse —
+    // has training history - the first week, a rest block, any lapse -
     // and the most-seen state must not look like a fault.
     function signal(status as Number) as Number {
         if (isWarning(status)) {
@@ -228,7 +228,7 @@ module Theme {
     // The complication hands back a localised string, so the label that
     // gets drawn is whatever the watch said. Only the lookup keys off
     // English, and anything unrecognised falls through to NOMINAL rather
-    // than guessing — an unknown word must not raise a warning.
+    // than guessing - an unknown word must not raise a warning.
     function statusFrom(label as String or Null) as Number {
         if (label == null) { return STATUS_NONE; }
 

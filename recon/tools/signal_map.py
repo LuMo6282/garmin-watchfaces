@@ -1,4 +1,4 @@
-"""Render screenshots/signal-map.png — every colour the face can show,
+"""Render screenshots/signal-map.png - every colour the face can show,
 which status raises it, and its hex.
 
 The values are PARSED OUT OF source/Theme.mc rather than written here.
@@ -20,7 +20,7 @@ FONT = r"C:\Windows\Fonts\bahnschrift.ttf"
 # Which statuses each signal covers. The grouping lives in Theme.signal()
 # as control flow, which cannot be read out of the source without running
 # it, so this list is the one thing here that must be kept in step by
-# hand — check it against Theme.signal() if the mapping ever changes.
+# hand - check it against Theme.signal() if the mapping ever changes.
 SIGNALS = [
     ("NOMINAL", "AMBER", "AMBER_DIM",
      ["OD_LIT", "OD", "OD_DEEP", "GROUND"],
@@ -69,7 +69,7 @@ def main():
     d = ImageDraw.Draw(im)
 
     y = 42
-    d.text((48, y), "RECON — SIGNAL MAP", font=h1, fill=rgb(C["BONE"]))
+    d.text((48, y), "RECON - SIGNAL MAP", font=h1, fill=rgb(C["BONE"]))
     y += 46
     d.text((48, y), "nine training statuses, three signals, three structure families",
            font=body, fill=rgb(C["OD_LIT"]))
@@ -94,7 +94,7 @@ def main():
         # signal's temperature, so each family is listed against the
         # signal it serves rather than once for the whole face.
         y += 10
-        d.text((68, y), "structure — " + famname, font=mono,
+        d.text((68, y), "structure - " + famname, font=mono,
                fill=rgb(C[family[1]]))
         y += 26
         x = 68
@@ -108,7 +108,7 @@ def main():
 
     d.line([48, y, W - 48, y], fill=rgb(C["OD_DEEP"]), width=1)
     y += 26
-    d.text((48, y), "SHARED — the same in every state", font=h2,
+    d.text((48, y), "SHARED - the same in every state", font=h2,
            fill=rgb(C["OD_LIT"]))
     y += 38
     for key, use in SHARED:

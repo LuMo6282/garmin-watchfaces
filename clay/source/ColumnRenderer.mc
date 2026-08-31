@@ -8,7 +8,7 @@ class ColumnRenderer extends Renderer {
 
     // Left margin has to clear the bezel curve, so it is a fraction of
     // width rather than a fixed pixel count. Slightly tighter than the
-    // optical centre would want — the asymmetry is what makes it read
+    // optical centre would want - the asymmetry is what makes it read
     // as set type instead of a centred stack that missed.
     hidden const MARGIN     = 0.165;
     hidden const DATE_BASE  = 0.225;
@@ -38,7 +38,7 @@ class ColumnRenderer extends Renderer {
         tracked(dc, x, base, labelFont, m.dateLine,
             secondary(), 3, Graphics.TEXT_JUSTIFY_LEFT);
 
-        // Time — the one large thing on the face, and never animated.
+        // Time - the one large thing on the face, and never animated.
         var timeFont = FaceFonts.time();
         base += TIME_GAP + Graphics.getFontAscent(timeFont);
         baseline(dc, x, base, timeFont, m.timeString(),

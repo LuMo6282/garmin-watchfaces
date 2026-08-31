@@ -2,19 +2,19 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.Math;
 
-// Layout A — Meridian. Two mirrored arcs and a page of type between them.
+// Layout A - Meridian. Two mirrored arcs and a page of type between them.
 //
 // The top arc is the day: it runs from sunrise on the left to sunset on
 // the right, and a cream disc rides it at the current hour. The part the
 // sun has already crossed is lit; the rest is an empty track. After
-// sunset the disc is simply gone — the sun is below the horizon, so it
-// is not on the arc — and the label switches to tomorrow's sunrise.
+// sunset the disc is simply gone - the sun is below the horizon, so it
+// is not on the arc - and the label switches to tomorrow's sunrise.
 //
 // The bottom arc is the body: readiness, filling as the recovery clock
 // runs down. Both arcs grow left to right, so the pair reads as one
 // movement rather than as two gauges that happen to face each other.
 //
-// Everything coloured — both arcs and the status word — is the training
+// Everything coloured - both arcs and the status word - is the training
 // status colour, so the whole face changes character with the training,
 // and the numerals stay neutral cream on top of it.
 class MeridianRenderer extends Renderer {
@@ -56,7 +56,7 @@ class MeridianRenderer extends Renderer {
         var t = eased(reveal);
 
         // The palette is a function of training status, so it has to be
-        // settled before anything is painted — the ground included.
+        // settled before anything is painted - the ground included.
         status = m.trainingStatus;
         clear(dc);
 
@@ -75,7 +75,7 @@ class MeridianRenderer extends Renderer {
 
     // The day. Track first, then however much of it the sun has crossed,
     // then the sun itself. Nothing is drawn at all on a device that
-    // cannot say when the sun rises — an empty track with no disc on it
+    // cannot say when the sun rises - an empty track with no disc on it
     // would be a gauge reading zero, which is not the same as silence.
     hidden function drawDay(
         dc as Dc, m as Metrics,

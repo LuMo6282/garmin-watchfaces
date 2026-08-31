@@ -2,11 +2,11 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.Math;
 
-// Layout D — Radial. One dial, one page of type, one level row.
+// Layout D - Radial. One dial, one page of type, one level row.
 //
 // The big dial is the step goal. It sweeps clockwise from eight o'clock,
 // over the top, to four, and it climbs a gradient as it goes rather than
-// filling in a flat colour — the ramp is what says how far along the day
+// filling in a flat colour - the ramp is what says how far along the day
 // is at a glance, before a single figure has been read.
 //
 // Reaching the goal does not end it. At 100% the dial drops back to a
@@ -39,7 +39,7 @@ class RadialRenderer extends Renderer {
     hidden const ARC_INSET   = 36;
 
     // Track and lit run at the SAME weight. Only colour separates the goal
-    // spent from the goal left — a thinner track would say the remaining
+    // spent from the goal left - a thinner track would say the remaining
     // steps matter less, which is the opposite of the point.
     //
     // Both rings run at this weight. Thinning the sun dial to rank it
@@ -51,7 +51,7 @@ class RadialRenderer extends Renderer {
 
     // Eight o'clock, clockwise, to four o'clock: 246° of dial and a 114°
     // gap across the bottom. Both figures are measured off the comp, not
-    // chosen — a wider sweep looked closer to the drawing at a glance but
+    // chosen - a wider sweep looked closer to the drawing at a glance but
     // ran the arc's ends straight through the row of figures. Garmin
     // measures degrees counter-clockwise from 3 o'clock, so clockwise is a
     // decreasing angle and the dial runs 213 down to -33.
@@ -60,13 +60,13 @@ class RadialRenderer extends Renderer {
 
     // Degrees per sub-arc on the step ramp. A seam budget, not a
     // preference: the widest climb in the palette is about 137 values
-    // across the arc, so 2° is roughly one value of change per step —
+    // across the arc, so 2° is roughly one value of change per step -
     // under what the eye resolves at this contrast. The ghost pass carries
     // far less contrast and can run coarser.
     hidden const SEG         = 2;
     hidden const GHOST_SEG   = 4;
 
-    // Where MID — the ramp's signature tone — sits along the dial.
+    // Where MID - the ramp's signature tone - sits along the dial.
     //
     // The stops are the spec's own table and are NOT re-spaced by
     // luminance. That was tried: it gives a mathematically even climb and
@@ -75,7 +75,7 @@ class RadialRenderer extends Renderer {
     hidden const ANCHOR      = 0.55;
 
     // The band of the ramp the status word is set across. Narrow on
-    // purpose — the word has to read as one colour that belongs to the
+    // purpose - the word has to read as one colour that belongs to the
     // dial, with just enough travel to feel lit rather than printed.
     hidden const WORD_FROM   = 0.50;
     hidden const WORD_TO     = 0.80;
@@ -109,7 +109,7 @@ class RadialRenderer extends Renderer {
     // daylight stop toward its overcast version, and typical weather sits
     // around 0.7, so what is actually on screen most days is mostly these
     // and barely the clear ones. Overcast is therefore a SLATE BLUE and a
-    // banked sunset keeps its warmth — neutral grey here drained the dial
+    // banked sunset keeps its warmth - neutral grey here drained the dial
     // whenever the sky was anything short of perfect.
     hidden const SKY_CLEAR    = 0x2E90E6 as Number;   // open blue
     hidden const SKY_COVERED  = 0x5E86A8 as Number;   // overcast, still sky
@@ -119,21 +119,21 @@ class RadialRenderer extends Renderer {
 
     // The ramp is stepped along the arc a pixel at a time rather than
     // built from flat sub-arcs. drawArc takes WHOLE degrees, so a
-    // segmented gradient cannot be subdivided below one degree — which
+    // segmented gradient cannot be subdivided below one degree - which
     // at this radius is a 3px band, and at the 2 degrees it started on,
     // a 7px one. Both step visibly.
     //
     // Walking the arc and stamping an overlapping dot per pixel gives a
     // colour change every pixel instead, and rounds the ends for free.
     // 2px, not 1. At one dot per pixel the sun dial cost ~70ms of a
-    // ~109ms frame — two thirds of the whole face for one small gauge.
+    // ~109ms frame - two thirds of the whole face for one small gauge.
     // The dots are 9px across, so at 2px spacing they still overlap by 7
     // and the ramp stays smooth; it is the same picture for half the work.
     hidden const SUN_STEP_PX    = 2.0;
 
     // During the wrist-raise reveal the ramp runs coarse. The face is
     // being redrawn every frame there and the gradient is not what the
-    // eye is following — the bead is. The full ramp lands on the frame
+    // eye is following - the bead is. The full ramp lands on the frame
     // that settles.
     hidden const SUN_STEP_DRAG  = 6.0;
 
@@ -141,7 +141,7 @@ class RadialRenderer extends Renderer {
 
     // Vertical rhythm, as baselines. Every one of these is a measurement
     // taken off the approved comp and scaled to the screen, not a value
-    // that felt right — the comp's whole argument is the air between the
+    // that felt right - the comp's whole argument is the air between the
     // elements, and that air is what a guessed fraction loses first.
     //
     // Expressed as fractions of the height so the layout survives a
@@ -159,7 +159,7 @@ class RadialRenderer extends Renderer {
     // else, and it is the difference between a caption and a label.
     // Solved, not chosen: the comp's set widths minus the natural
     // advance of the face, divided over the gaps. The row's units come
-    // out at zero — the comp's label spacing is the typeface's own, and
+    // out at zero - the comp's label spacing is the typeface's own, and
     // opening it further was making SUNSET a third wider than drawn.
     hidden const TRACK_DATE   = 4;
     hidden const TRACK_STATUS = 4;
@@ -183,7 +183,7 @@ class RadialRenderer extends Renderer {
         var t = eased(reveal);
 
         // The palette is a function of training status, so it has to be
-        // settled before anything is painted — the ground included.
+        // settled before anything is painted - the ground included.
         status = m.trainingStatus;
         clear(dc);
 
@@ -199,7 +199,7 @@ class RadialRenderer extends Renderer {
         drawSunTime(dc, m, cx, h);
     }
 
-    // Track first, always, across the whole span — the unlit remainder is
+    // Track first, always, across the whole span - the unlit remainder is
     // part of the reading. Then whichever pass the day is on.
     //
     // Nothing is drawn at all on a watch that cannot say what the goal is.
@@ -255,7 +255,7 @@ class RadialRenderer extends Renderer {
             stops, shine, SEG, true, 0.0);
     }
 
-    // One run of the gradient, laid down as flat sub-arcs — Connect IQ has
+    // One run of the gradient, laid down as flat sub-arcs - Connect IQ has
     // no gradient primitive, so `blend` and a lot of small arcs is the
     // whole toolkit.
     //
@@ -309,14 +309,14 @@ class RadialRenderer extends Renderer {
 
         // drawArc butts its ends. Both ends of the run get a disc the width
         // of the pen, placed at the run's TRUE float angles so the run
-        // reaches its exact length — the body of it can only land on whole
+        // reaches its exact length - the body of it can only land on whole
         // degrees.
         endCap(dc, cx, cy, r, fromDeg, stops, shine, mirror, ghost);
         endCap(dc, cx, cy, r, fromDeg - sweep, stops, shine, mirror, ghost);
     }
 
     // The ramp, sampled at a position along it. 0.0 is DEEP, ANCHOR is
-    // MID, 1.0 is PALE — lifted toward MILK as `shine` rises.
+    // MID, 1.0 is PALE - lifted toward MILK as `shine` rises.
     hidden function rampColour(
         along as Float, stops as Array<Number>, shine as Float
     ) as Number {
@@ -401,7 +401,7 @@ class RadialRenderer extends Renderer {
         var c0 = m.sunIsRise ? NIGHT : sky;   // where the span began
         var c2 = m.sunIsRise ? sky : NIGHT;   // where it is going
 
-        // The ramp turns the same way the big ring does — clockwise, which
+        // The ramp turns the same way the big ring does - clockwise, which
         // along the bottom of the face means right to left. Both gauges
         // sweep as one continuous motion around the rim.
         //
@@ -499,7 +499,7 @@ class RadialRenderer extends Renderer {
     //
     // Set on its own measured baseline rather than centred on the face.
     // Optical centring put it in the middle of the disc, but the comp
-    // sits it a little high — the row and the sun dial below need more
+    // sits it a little high - the row and the sun dial below need more
     // room than the date above, and the time has to move up to give it.
     hidden function drawTime(
         dc as Dc, m as Metrics, cx as Number, h as Number
@@ -514,7 +514,7 @@ class RadialRenderer extends Renderer {
     // a mood; with it, the colour is a reading.
     //
     // It is set in the dial's own ramp rather than in the accent, so the
-    // word and the graphic are the same colour — two things claiming to
+    // word and the graphic are the same colour - two things claiming to
     // mean "productive" in two different greens was the face arguing with
     // itself. A slight climb runs across the letters, the same climb the
     // dial makes, which ties the two together without turning the word
@@ -533,7 +533,7 @@ class RadialRenderer extends Renderer {
 
     // Centred, letterspaced, and stepped along the ramp one glyph at a
     // time. Connect IQ has no gradient fill for text either, so per-glyph
-    // is as fine as this gets — which is enough at this size, because the
+    // is as fine as this gets - which is enough at this size, because the
     // letters are the sampling grid the eye already sees.
     hidden function rampText(
         dc as Dc,
@@ -562,7 +562,7 @@ class RadialRenderer extends Renderer {
 
     // Three groups, each a figure over its unit. Every value sits on one
     // baseline and every label on a second, so the row stays level even
-    // though the three are set in different faces — that shared pair of
+    // though the three are set in different faces - that shared pair of
     // baselines is the whole reason the row reads as organised rather
     // than as three things that happen to be near each other.
     //

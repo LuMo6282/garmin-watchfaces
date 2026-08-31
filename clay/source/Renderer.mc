@@ -69,8 +69,8 @@ class Renderer {
     // Sweeps CLOCKWISE from fromDeg. Garmin measures degrees
     // counter-clockwise from 3 o'clock, so clockwise means decreasing.
     // Both progress arcs are anchored at the end a full reading would
-    // start from and grow away from it — steps climb the left edge,
-    // body battery falls down the right — which is why this takes a
+    // start from and grow away from it - steps climb the left edge,
+    // body battery falls down the right - which is why this takes a
     // direction at all rather than the raw start/end pair.
     protected function arc(
         dc as Dc,
@@ -211,8 +211,8 @@ class Renderer {
     }
 
     // Joins as many parts as will fit, in the order given, and drops the
-    // rest. Both layouts have a hard width budget — the ring on one, the
-    // bezel curve on the other — so a line shortens rather than clipping
+    // rest. Both layouts have a hard width budget - the ring on one, the
+    // bezel curve on the other - so a line shortens rather than clipping
     // or colliding.
     protected function fitJoin(
         dc as Dc, font as FontType, parts as Array<String>,

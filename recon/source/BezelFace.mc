@@ -2,7 +2,7 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.Math;
 
-// Recon — a graduated bezel and a block of readouts.
+// Recon - a graduated bezel and a block of readouts.
 //
 // This is Clay's Radial layout taken apart and rebuilt out of hard
 // edges. The composition is deliberately the same, because the
@@ -15,7 +15,7 @@ import Toybox.Math;
 // What changed is everything about HOW it is drawn:
 //
 //   Clay's dial is one continuous arc with rounded caps, filled with a
-//   four-stop gradient. Recon's is a SCALE — 120 graduations at 3
+//   four-stop gradient. Recon's is a SCALE - 120 graduations at 3
 //   degrees, majors every 30, square-ended, and the reading is which
 //   ones are lit. A gradient says "somewhere around here"; a graduation
 //   says a number. That swap is most of the difference between the two
@@ -48,8 +48,8 @@ class BezelFace {
     hidden const MINOR_W     = 2;
     hidden const MAJOR_W     = 4;
 
-    // 3 degrees, so 120 graduations. Six was tried first — the classic
-    // chronograph count of 60 — and at this radius it leaves 22px
+    // 3 degrees, so 120 graduations. Six was tried first - the classic
+    // chronograph count of 60 - and at this radius it leaves 22px
     // between ticks, which reads as a row of marks rather than as a
     // scale that can fill. At 3 degrees they sit 11px apart and the lit
     // run reads as a bar you can still count.
@@ -58,7 +58,7 @@ class BezelFace {
 
     // Eight o'clock, clockwise, over the top, to four: 246 degrees of
     // gauge and a 114 degree gap across the bottom for the sun readout.
-    // Both figures are Clay's, measured off the comp — a wider sweep
+    // Both figures are Clay's, measured off the comp - a wider sweep
     // looks closer to the drawing at a glance but runs the ends of the
     // gauge straight through the row of figures.
     //
@@ -68,7 +68,7 @@ class BezelFace {
     hidden const DIAL_SPAN   = 246.0;
 
     // Both ends of the gauge's range, drawn long and lit even when
-    // nothing is reading against them. They are the scale's endstops —
+    // nothing is reading against them. They are the scale's endstops -
     // without them the gauge has no visible zero, and a reading of zero
     // is indistinguishable from an instrument that is switched off.
     // Both land on the 3 degree grid, which is why the grid starts at 0.
@@ -79,7 +79,7 @@ class BezelFace {
     //
     // Four corner brackets around the TIME only, not around the whole
     // readout block. Framing everything was drawn first and its bottom
-    // corners fouled the graduations — that box's half-diagonal is
+    // corners fouled the graduations - that box's half-diagonal is
     // larger than the ring's inner radius, so there is nowhere for it to
     // go. Framing the clock alone is also the better call: it marks the
     // one thing on the face you are actually aiming at.
@@ -158,7 +158,7 @@ class BezelFace {
 
     // Always-on state for burn-in-protected screens. At 1% brightness
     // with a pixel budget there is no layout left to express, only the
-    // time — so the bezel, the reticle and every readout are dropped
+    // time - so the bezel, the reticle and every readout are dropped
     // rather than dimmed.
     function drawAmbient(dc as Dc, m as Metrics) as Void {
         dc.setColor(Graphics.COLOR_TRANSPARENT, Theme.GROUND);
@@ -191,7 +191,7 @@ class BezelFace {
     //
     // The whole ring costs 120 drawLine calls. Clay's equivalent was a
     // 123-segment gradient plus ~147 fillCircles for the sky dial, and
-    // fillCircle is the expensive one — the sun dial alone was two
+    // fillCircle is the expensive one - the sun dial alone was two
     // thirds of Clay's frame. There is no reason to run this coarse
     // during the reveal.
     hidden function drawBezel(
@@ -202,7 +202,7 @@ class BezelFace {
 
         // Nothing to read is not the same as reading zero. The scale is
         // structure and is drawn either way, but on a watch that cannot
-        // say what the goal is NO graduation lights — not even the one
+        // say what the goal is NO graduation lights - not even the one
         // on the zero mark.
         //
         // That distinction has to be carried explicitly rather than by
@@ -279,7 +279,7 @@ class BezelFace {
     }
 
     // One graduation: a radial line from the rim inward. drawLine butts
-    // its ends, which is the whole point — Clay rounds every cap because
+    // its ends, which is the whole point - Clay rounds every cap because
     // its arcs have to read as one continuous stroke, and a scale wants
     // exactly the opposite.
     hidden function tick(
@@ -343,7 +343,7 @@ class BezelFace {
     }
 
     // ------------------------------------------------------------------
-    // Readouts. Upper case throughout — nothing on this face is set in
+    // Readouts. Upper case throughout - nothing on this face is set in
     // lower case, and the subset fonts do not even carry it.
 
     hidden function drawDate(
@@ -378,7 +378,7 @@ class BezelFace {
     }
 
     // The word that explains the signal. Three colours cannot tell
-    // peaking from productive, and are not meant to — this line is where
+    // peaking from productive, and are not meant to - this line is where
     // that lives. Set flat in the signal colour: Clay steps its status
     // word along a gradient, which is exactly the softness being
     // designed out.
@@ -393,7 +393,7 @@ class BezelFace {
     }
 
     // Three groups, each a figure over its unit. Every value sits on one
-    // baseline and every label on a second, so the row stays level —
+    // baseline and every label on a second, so the row stays level -
     // that shared pair of baselines is the whole reason it reads as
     // organised rather than as three things that happen to be near each
     // other.
@@ -439,7 +439,7 @@ class BezelFace {
     }
 
     // The next sun event, printed, in the gap at six o'clock. Clay draws
-    // a second small dial here and paints it as the sky — a gradient
+    // a second small dial here and paints it as the sky - a gradient
     // from daylight through dusk into night, stamped one disc per pixel
     // of arc. It is the prettiest thing on that face and it costs two
     // thirds of the frame.

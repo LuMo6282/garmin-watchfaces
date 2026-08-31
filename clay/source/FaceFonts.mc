@@ -8,7 +8,7 @@ import Toybox.WatchUi;
 // what stops the face reading as data dropped onto a background.
 //
 // Rez symbols resolve at compile time, so `Rez.Fonts has :serifTime`
-// cannot be asked at runtime — the symbol only exists once the resource
+// cannot be asked at runtime - the symbol only exists once the resource
 // does. The switch is a build annotation: drop `noSerifFont` from
 // `base.excludeAnnotations` in monkey.jungle to fall back to the
 // built-in faces on a device with no font generated for it.
@@ -92,7 +92,7 @@ module FaceFonts {
     }
 
     // Fallbacks for a device with no generated serif. Deliberately plain
-    // — the look depends on the serif, and a stand-in should read as a
+    // - the look depends on the serif, and a stand-in should read as a
     // stand-in rather than pretend.
     (:serifFont)
     function loadMicro() as FontType {

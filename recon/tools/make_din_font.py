@@ -1,7 +1,7 @@
 """Generate a Connect IQ bitmap font from Bahnschrift, subset to what the
 face actually sets.
 
-Bahnschrift is Windows' cut of DIN 1451 — the German industrial standard
+Bahnschrift is Windows' cut of DIN 1451 - the German industrial standard
 face used on road signs, vehicle plates and equipment panels. That is the
 whole reason it is here: it carries the engineered, issued look this face
 wants, where Clay's Calibri carries a soft humanist one.
@@ -43,8 +43,8 @@ def build(px, name, out_dir, weight, width, tracking=0, glyphs=TIME, tabular=Fal
     font.set_variation_by_axes([weight, width])
 
     # Tabular figures: every digit gets the same advance and is centred
-    # in it. Bahnschrift is proportional by default — '1' is 32 units
-    # against '4' at 52 — so a clock set in it visibly reshuffles as the
+    # in it. Bahnschrift is proportional by default - '1' is 32 units
+    # against '4' at 52 - so a clock set in it visibly reshuffles as the
     # minute rolls. On a readout face the digits have to sit still.
     cell = 0
     if tabular:

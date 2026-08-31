@@ -4,7 +4,7 @@
 Garmin takes BMFont's text .fnt plus a single-channel greyscale .png,
 where white is the area that gets painted in whatever colour the app
 sets. Subsetting to 11 glyphs is what keeps the sheet inside the watch
-face memory cap — a full Latin set at this size would not fit.
+face memory cap - a full Latin set at this size would not fit.
 
     python tools/make_serif_font.py --size 168 --name serif_time
     python tools/make_serif_font.py --size 38  --name serif_small
@@ -26,7 +26,7 @@ TIME = "0123456789:"
 FIGURES = "0123456789:,. %°·k"
 LABEL = (" ABCDEFGHIJKLMNOPQRSTUVWXYZ"
          "abcdefghijklmnopqrstuvwxyz"
-         "0123456789.,:;'\"!?-–/()%°·+")
+         "0123456789.,:;'\"!?--/()%°·+")
 PAD = 2          # transparent gutter so neighbouring glyphs never bleed
 
 
